@@ -15,6 +15,8 @@ import pyquery
 from pyquery import PyQuery as pq
 from pyquery.ajax import PyQuery as pqa
 
+import spackager
+
 socket.setdefaulttimeout(1)
 
 try:
@@ -30,7 +32,7 @@ def with_net(func):
     if GOT_NET:
         return func
 
-dirname = os.path.dirname(os.path.abspath(pyquery.__file__))
+dirname = os.path.dirname(os.path.abspath(spackager.__file__))
 docs = os.path.join(os.path.dirname(dirname), 'docs')
 path_to_html_file = os.path.join(dirname, 'test.html')
 
