@@ -1,8 +1,11 @@
 #-*- coding:utf-8 -*-
 #
-# Copyright (C) 2008 - Olivier Lauzanne <olauzanne@gmail.com>
+# Copyright (C) 2011 - Guido Serra aka Zeph <zeph@fsfe.org>
+#      "I'm applying the GPL only to my test file,
+#       I'm not claiming the work of anyone else"
+# -> originally based on the "pyquery" test file structure
 #
-# Distributed under the BSD license, see LICENSE.txt
+# Distributed under the GPL license
 from webob import Request, Response, exc
 from lxml import etree
 import unittest
@@ -21,15 +24,6 @@ from spackager.spa import compile, _get_uri
 socket.setdefaulttimeout(1)
 uri = 'http://guidoserra.it'
 filename = 'run.html'
-
-try:
-    conn = httplib.HTTPConnection("pyquery.org:80")
-    conn.request("GET", "/")
-    response = conn.getresponse()
-except (socket.timeout, socket.error):
-    GOT_NET=False
-else:
-    GOT_NET=True
 
 class TestWebPackager(unittest.TestCase):
     def test_spac(self):
