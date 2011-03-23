@@ -19,6 +19,8 @@ import spackager
 from spackager.spa import compile, _get_uri
 
 socket.setdefaulttimeout(1)
+uri = 'http://guidoserra.it'
+filename = 'run.html'
 
 try:
     conn = httplib.HTTPConnection("pyquery.org:80")
@@ -29,29 +31,14 @@ except (socket.timeout, socket.error):
 else:
     GOT_NET=True
 
-def with_net(func):
-    if GOT_NET:
-        return func
-
-dirname = os.path.dirname(os.path.abspath(spackager.__file__))
-docs = os.path.join(os.path.dirname(dirname), 'docs')
-path_to_html_file = os.path.join(dirname, 'test.html')
-
-def input_app(environ, start_response):
-    resp = Response()
-    req = Request(environ)
-    if req.path_info == '/':
-        resp.body = '<input name="youyou" type="text" value="" />'
-    elif req.path_info == '/submit':
-        resp.body = '<input type="submit" value="OK" />'
-    else:
-        resp.body = ''
-    return resp(environ, start_response)
-
 class TestWebPackager(unittest.TestCase):
-    @with_net
-    def test_get(self):
-        d = pq('http://guidoserra.it/')
+    def test_spac(self):
+        original = _get_uri(uri)
+        html = compile(original, False)
+        outfile = filename.replace('.html', '.mhtml')
+        f = open(outfile, 'w')
+        f.write(html)
+        f.close()
 
 if __name__ == '__main__':
     fails, total = unittest.main()
