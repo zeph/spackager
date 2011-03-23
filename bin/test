@@ -1,17 +1,4 @@
-#!/opt/local/Library/Frameworks/Python.framework/Versions/2.6/Resources/Python.app/Contents/MacOS/Python
-
-import sys
-sys.path[0:0] = [
-    '/Users/zeph/tmp/pyquery',
-    '/Users/zeph/tmp/pyquery/eggs/BeautifulSoup-3.2.0-py2.6.egg',
-    '/Users/zeph/tmp/pyquery/eggs/Paste-1.7.5.1-py2.6.egg',
-    '/opt/local/Library/Frameworks/Python.framework/Versions/2.6/lib/python2.6/site-packages',
-    '/Users/zeph/tmp/pyquery/eggs/WebOb-1.0.5-py2.6.egg',
-    '/Users/zeph/tmp/pyquery/eggs/nose-1.0.0-py2.6.egg',
-    '/Users/zeph/tmp/pyquery/eggs/lxml-2.3-py2.6-macosx-10.6-x86_64.egg',
-    ]
-
-
+#!/usr/bin/env python
 import nose
 
 if __name__ == '__main__':
