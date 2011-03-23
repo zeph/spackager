@@ -47,27 +47,6 @@ def input_app(environ, start_response):
         resp.body = ''
     return resp(environ, start_response)
 
-class TestReadme(doctest.DocFileCase):
-    path = os.path.join(dirname, '..', 'README.txt')
-
-    def __init__(self, *args, **kwargs):
-        parser = doctest.DocTestParser()
-        doc = open(self.path).read()
-        test = parser.get_doctest(doc, globals(), '', self.path, 0)
-        doctest.DocFileCase.__init__(self, test, optionflags=doctest.ELLIPSIS)
-
-    def setUp(self):
-        test = self._dt_test
-        test.globs.update(globals())
-
-for filename in os.listdir(docs):
-    if filename.endswith('.txt'):
-        if not GOT_NET and filename in ('ajax.txt', 'tips.txt'):
-            continue
-        klass_name = 'Test%s' % filename.replace('.txt', '').title()
-        path = os.path.join(docs, filename)
-        exec '%s = type("%s", (TestReadme,), dict(path=path))' % (klass_name, klass_name)
-
 class TestTests(doctest.DocFileCase):
     path = os.path.join(dirname, 'tests.txt')
 
