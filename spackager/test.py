@@ -34,10 +34,10 @@ else:
 class TestWebPackager(unittest.TestCase):
     def test_spac(self):
         original = _get_uri(uri)
-        html = compile(original, False)
+        mhtml = compile(original, False)
         outfile = filename.replace('.html', '.mhtml')
         f = open(outfile, 'w')
-        f.write(html)
+        f.write(mhtml)
         f.close()
 
 if __name__ == '__main__':
