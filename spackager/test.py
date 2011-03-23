@@ -13,7 +13,7 @@ import os
 
 import pyquery
 from pyquery import PyQuery as pq
-from ajax import PyQuery as pqa
+from pyquery.ajax import PyQuery as pqa
 
 socket.setdefaulttimeout(1)
 
