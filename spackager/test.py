@@ -27,10 +27,8 @@ class TestWebPackager(unittest.TestCase):
     def test_spac(self):
         original = _get_uri(uri)
         mhtml = compile(original, False)
-        outfile = filename.replace('.html', '.mhtml')
-        f = open(outfile, 'w')
-        f.write(mhtml)
-        f.close()
+        # at least it does something...
+        self.assertNotEqual(original, mhtml)
 
 if __name__ == '__main__':
     fails, total = unittest.main()
