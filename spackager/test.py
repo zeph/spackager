@@ -1,9 +1,7 @@
 #-*- coding:utf-8 -*-
 #
 # Copyright (C) 2011 - Guido Serra aka Zeph <zeph@fsfe.org>
-#      "I'm applying the GPL only to my test file,
-#       I'm not claiming the work of anyone else"
-# -> originally based on the "pyquery" test file structure
+# -> based on the "pyquery" test suite from Oliver Lauzanne
 #
 # Distributed under the GPL license
 from webob import Request, Response, exc
